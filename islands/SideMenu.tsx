@@ -1,11 +1,14 @@
-import { useSignal, useComputed } from "@preact/signals";
-import { VNode, ComponentChild } from "https://esm.sh/v128/preact@10.19.6/src/index.js";
+import { useComputed, useSignal } from "@preact/signals";
+import {
+  ComponentChild,
+  VNode,
+} from "https://esm.sh/v128/preact@10.19.6/src/index.js";
 import * as React from "preact/compat";
 import { useEffect } from "preact/hooks";
 
 function HangerContent({ routes }: { routes: unknown }) {
   useEffect(() => {
-    const handleFolderClick = (event: { target: any; }) => {
+    const handleFolderClick = (event: { target: any }) => {
       const target = event.target;
       if (target.classList.contains("folder")) {
         target.classList.toggle("open");
@@ -31,17 +34,17 @@ function HangerContent({ routes }: { routes: unknown }) {
     };
   }, []);
 
-    return (
-        <div class="flex-shrink-0 hidden lg:block lg:px-4">
-        <div class="fixed top-24 bottom-24 w-[17rem] flex overflow-hidden dark:bg-[#242424] rounded-xl">
-          <div class="flex-1 h-[calc(100vh_-_6rem)] overflow-y-auto pb-8 p-2">
-            <ul class="list-inside font-semibold nested ml-2.5 file-tree">
+  return (
+    <div class="flex-shrink-0 hidden lg:block lg:px-4">
+      <div class="fixed top-24 bottom-24 w-[17rem] flex overflow-hidden dark:bg-[#242424] rounded-xl">
+        <div class="flex-1 h-[calc(100vh_-_6rem)] overflow-y-auto pb-8 p-2">
+          <ul class="list-inside font-semibold nested ml-2.5 file-tree">
             {renderSidebar(routes, "/")}
-            </ul>
-          </div>
+          </ul>
         </div>
       </div>
-    );
+    </div>
+  );
 }
 
 export default HangerContent;
@@ -59,7 +62,9 @@ const FileTitle = ({ href, children }: FileTitleProps) => (
   </li>
 );
 
-const DirTitle = ({ children }: { children: React.ReactNode }) => <span className="folder">{children}</span>;
+const DirTitle = ({ children }: { children: React.ReactNode }) => (
+  <span className="folder">{children}</span>
+);
 
 function renderSidebar(routes: unknown, path = "") {
   if (!routes) {
