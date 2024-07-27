@@ -1,9 +1,11 @@
 import { useSignal, useComputed } from "@preact/signals";
+import { VNode, ComponentChild } from "https://esm.sh/v128/preact@10.19.6/src/index.js";
+import * as React from "preact/compat";
 import { useEffect } from "preact/hooks";
 
-function HangerContent({ isShow, routes }) {
+function HangerContent({ routes }: { routes: unknown }) {
   useEffect(() => {
-    const handleFolderClick = (event) => {
+    const handleFolderClick = (event: { target: any; }) => {
       const target = event.target;
       if (target.classList.contains("folder")) {
         target.classList.toggle("open");
@@ -29,28 +31,27 @@ function HangerContent({ isShow, routes }) {
     };
   }, []);
 
-  if (isShow.value) {
     return (
-      <div class="fixed w-full h-screen bg-[#ffffff2f] flex">
-        <div class="w-3/4 bg-[#181818] h-screen px-5 py-10 text-2xl">
-          <div class="list-inside font-semibold nested ml-2.5 file-tree">
+        <div class="flex-shrink-0 hidden lg:block lg:px-4">
+        <div class="fixed top-24 bottom-24 w-[17rem] flex overflow-hidden dark:bg-[#242424] rounded-xl">
+          <div class="flex-1 h-[calc(100vh_-_6rem)] overflow-y-auto pb-8 p-2">
+            <ul class="list-inside font-semibold nested ml-2.5 file-tree">
             {renderSidebar(routes, "/")}
+            </ul>
           </div>
         </div>
-        <div
-          class="w-1/4 h-screen p-1"
-          onClick={() => (isShow.value = !isShow.value)}
-        ></div>
       </div>
     );
-  } else {
-    return null;
-  }
 }
 
 export default HangerContent;
 
-const FileTitle = ({ href, children }) => (
+type FileTitleProps = {
+  href: string;
+  children: React.ReactNode;
+};
+
+const FileTitle = ({ href, children }: FileTitleProps) => (
   <li>
     <a href={href} className="file">
       {children}
@@ -58,9 +59,9 @@ const FileTitle = ({ href, children }) => (
   </li>
 );
 
-const DirTitle = ({ children }) => <span className="folder">{children}</span>;
+const DirTitle = ({ children }: { children: React.ReactNode }) => <span className="folder">{children}</span>;
 
-function renderSidebar(routes, path = "") {
+function renderSidebar(routes: unknown, path = "") {
   if (!routes) {
     return null;
   }

@@ -7,6 +7,7 @@ import { Page } from "../islands/Page.tsx";
 import { Partial } from "$fresh/runtime.ts";
 import Hanger from "../islands/Button.tsx";
 import HangerContent from "../islands/HangerContent.tsx";
+import SideMenu from "../islands/SideMenu.tsx";
 let routes: FileStructure | undefined;
 export const handler = {
   async GET(_req: Request, ctx: FreshContext) {

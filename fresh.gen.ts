@@ -13,6 +13,7 @@ import * as $FileTree from "./islands/FileTree.tsx";
 import * as $Hanger from "./islands/Hanger.tsx";
 import * as $HangerContent from "./islands/HangerContent.tsx";
 import * as $Page from "./islands/Page.tsx";
+import * as $SideMenu from "./islands/SideMenu.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -30,6 +31,7 @@ const manifest = {
     "./islands/Hanger.tsx": $Hanger,
     "./islands/HangerContent.tsx": $HangerContent,
     "./islands/Page.tsx": $Page,
+    "./islands/SideMenu.tsx": $SideMenu,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

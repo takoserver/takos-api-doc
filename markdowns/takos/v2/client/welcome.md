@@ -1,9 +1,11 @@
 ### Endpoint
 `````
-GET /api/takos/v2/client/welcome
+GET /takos/v2/client/welcome
 `````
 ### Parameters
 Nothing
+
+### Response
 
 ## descripton
 welcome Pageのためのapi
