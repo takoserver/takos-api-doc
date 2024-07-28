@@ -28,13 +28,13 @@
 }
 
 .folder:before {
-  content: "▶";
+  content: "▼";
   display: inline-block;
   margin-right: 6px;
 }
 
 .folder.open:before {
-  content: "▼";
+  content: "▶";
 }
 .folder2,
 .file2 {
