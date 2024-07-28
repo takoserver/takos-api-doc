@@ -8,7 +8,7 @@ export default function App({ Component }: PageProps) {
         <title>tako-api-doc-template</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body class="" f-client-nav>
+      <body class="bg-[#181818]" f-client-nav>
         <Component />
       </body>
     </html>

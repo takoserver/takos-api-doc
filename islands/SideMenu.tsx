@@ -36,7 +36,7 @@ function HangerContent({ routes }: { routes: unknown }) {
 
   return (
     <div class="flex-shrink-0 hidden lg:block lg:px-4">
-      <div class="fixed top-24 bottom-24 w-[17rem] flex overflow-hidden dark:bg-[#242424] rounded-xl">
+      <div class="fixed top-24 bottom-24 w-[17rem] flex overflow-hidden bg-[#242424] rounded-xl">
         <div class="flex-1 h-[calc(100vh_-_6rem)] overflow-y-auto pb-8 p-2">
           <ul class="list-inside nested ml-2.5 file-tree">
             {renderSidebar(routes, "/")}

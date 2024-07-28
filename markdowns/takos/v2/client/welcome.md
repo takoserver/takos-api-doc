@@ -9,7 +9,8 @@ GET /takos/v2/client/welcome
 Nothing
 
 ### Response
-`````
+
+```
 {
     users: number
     remoteServers: number,
@@ -17,7 +18,8 @@ Nothing
     talks: Object
     status: true,
 }
-`````
+```
+
 ## descripton
 
 welcome Pageのためのapi

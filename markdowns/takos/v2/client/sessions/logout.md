@@ -6,9 +6,9 @@ POST /takos/v2/client/sessions/logout
 
 ### Parameters
 
-| name     | type   | description    | required |
-| -------- | ------ | -------------- | -------- |
-| csrftoken | string | csrfトークン | true |
+| name      | type   | description  | required |
+| --------- | ------ | ------------ | -------- |
+| csrftoken | string | csrfトークン | true     |
 
 ### Response
 

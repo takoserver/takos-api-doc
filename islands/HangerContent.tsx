@@ -40,7 +40,8 @@ function HangerContent({ isShow, routes }) {
         <div
           class="w-1/4 h-screen p-1"
           onClick={() => (isShow.value = !isShow.value)}
-        ></div>
+        >
+        </div>
       </div>
     );
   } else {

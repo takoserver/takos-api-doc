@@ -8,19 +8,21 @@ GET /takos/v2/client/ws
 
 websocketです
 
-
 ## ws request
 
 ### join friend room
 
 reqest
+
 ```
 {
     type: "joinFriendRoom",
     friendName: string
 }
 ```
+
 response
+
 ```
 {
     type: "joinFriendRoom",
@@ -31,13 +33,16 @@ response
 ### join room
 
 reqest
+
 ```
 {
     type: "joinRoom",
     roomid: string
 }
 ```
+
 response
+
 ```
 {
     type: "joinRoom",
@@ -48,12 +53,15 @@ response
 ### ここからはサーバーから送られてくるのものみ
 
 on open
+
 ```
 {
     sessionid: string
 }
 ```
+
 message(friend)
+
 ```
 {
     type: "friendMessage",
@@ -63,7 +71,9 @@ message(friend)
     time: Date,
 }
 ```
+
 message(room)
+
 ```
 {
     type: "roomMessage",
@@ -73,6 +83,7 @@ message(room)
     time: Date
 }
 ```
+
 read(friend)
 
 ```
@@ -92,7 +103,9 @@ read(room)
     messageid: string
 }
 ```
+
 通知
+
 ```
 {
     type: "notification",

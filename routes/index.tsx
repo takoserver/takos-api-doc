@@ -99,8 +99,8 @@ export default function Home(
           href="https://sindresorhus.com/github-markdown-css/github-markdown.css"
         />
       </head>
-      <div class="bg-[#ffffff] dark:bg-[#181818] text-black hidden-scrollbar">
-        <header class="h-[56px] fixed w-full bg-[#efeff0] dark:bg-[#1f1f1f] flex">
+      <div class="bg-[#181818] text-black hidden-scrollbar">
+        <header class="h-[56px] fixed w-full bg-[#1f1f1f] flex">
           <div class="w-1/3 h-full block">
             <Hanger isShow={isShow}></Hanger>
           </div>
@@ -138,7 +138,7 @@ export default function Home(
         <div class="pt-[56px] flex">
           {/*side bar */}
           <div class="flex-shrink-0 hidden lg:block lg:px-4">
-            <div class="fixed top-24 bottom-24 w-[17rem] flex overflow-hidden dark:bg-[#242424] rounded-xl">
+            <div class="fixed top-24 bottom-24 w-[17rem] flex overflow-hidden bg-[#242424] rounded-xl">
               <div class="flex-1 h-[calc(100vh_-_6rem)] overflow-y-auto pb-8 p-2">
                 <ul class="list-inside font-semibold nested ml-2.5 file-tree">
                   {renderSidebar(routes, "/")}
