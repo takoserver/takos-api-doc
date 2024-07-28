@@ -95,7 +95,7 @@ const DirTitle = ({ children }: { children: any }) => (
 );
 
 // サイドバーをレンダリングする関数
-function renderSidebar(routes: FileStructure | undefined, path = "") {
+function renderSidebar(routes, path = "") {
   if (!routes) {
     return null;
   }
@@ -112,11 +112,12 @@ function renderSidebar(routes: FileStructure | undefined, path = "") {
             </FileTitle>
           ));
         } else {
-          const isOpen = useSignal(false);
           return (
             <li key={key}>
               <DirTitle>{key}</DirTitle>
-              {renderSidebar(value as FileStructure, `${path}${key}/`)}
+              <ul style={{ display: "block" }}>
+                {renderSidebar(value, `${path}${key}/`)}
+              </ul>
             </li>
           );
         }
@@ -178,7 +179,7 @@ export default function Home(
           <div class="flex-shrink-0 hidden lg:block lg:px-4">
             <div class="fixed top-24 bottom-24 w-[17rem] flex overflow-hidden dark:bg-[#242424] rounded-xl">
               <div class="flex-1 h-[calc(100vh_-_6rem)] overflow-y-auto pb-8 p-2">
-                <ul class="list-inside font-semibold nested ml-2.5 file-tree">
+                <ul class="list-inside  nested ml-2.5 file-tree text-lg">
                   {renderSidebar(routes, "/")}
                 </ul>
               </div>

@@ -1,4 +1,4 @@
-import { useComputed, useSignal } from "@preact/signals";
+import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
 function HangerContent({ isShow, routes }) {
@@ -18,7 +18,7 @@ function HangerContent({ isShow, routes }) {
     folders.forEach((folder) => {
       const ul = folder.nextElementSibling;
       if (ul) {
-        ul.style.display = "none"; // 初期状態で非表示
+        ul.style.display = "block"; // 初期状態で表示
       }
     });
 
@@ -32,7 +32,7 @@ function HangerContent({ isShow, routes }) {
   if (isShow.value) {
     return (
       <div class="fixed w-full h-screen bg-[#ffffff2f] flex">
-        <div class="w-3/4 bg-[#181818] h-screen px-5 py-10 text-2xl">
+        <div class="w-3/4 bg-[#181818] h-screen p-1">
           <div class="list-inside font-semibold nested ml-2.5 file-tree">
             {renderSidebar(routes, "/")}
           </div>
@@ -40,8 +40,7 @@ function HangerContent({ isShow, routes }) {
         <div
           class="w-1/4 h-screen p-1"
           onClick={() => (isShow.value = !isShow.value)}
-        >
-        </div>
+        ></div>
       </div>
     );
   } else {
@@ -81,7 +80,7 @@ function renderSidebar(routes, path = "") {
           return (
             <li key={key}>
               <DirTitle>{key}</DirTitle>
-              <ul style={{ display: "none" }}>
+              <ul style={{ display: "block" }}>
                 {renderSidebar(value, `${path}${key}/`)}
               </ul>
             </li>

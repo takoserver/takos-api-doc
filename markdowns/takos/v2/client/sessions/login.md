@@ -1,7 +1,7 @@
 ### Endpoint
 
 ```
-GET /takos/v2/client/sessions/login
+POST /takos/v2/client/sessions/login
 ```
 
 ### Parameters
@@ -29,4 +29,4 @@ body: {
 
 ## descripton
 
-ログインしている場合、csrftokenを返します。csrftokenの有効期限は1分です
+ログインしていない場合、sessionidを発行します
