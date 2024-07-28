@@ -188,11 +188,11 @@ export default function Home(
           {/*content */}
           <Partial name="body">
             <div
-              class="w-full min-w-0 text-white h-screen overflow-y-hidden flex"
+              class="w-full min-w-0 text-white overflow-y-hidden flex"
               id="md"
             >
               <div class="lg:ml-[18rem] mt-4 min-w-0 flex w-full">
-                <div class="w-2/3 lg:w-1/2 mx-auto">
+                <div class="w-2/3 lg:w-1/2 mx-auto overflow-y-auto hidden-scrollbar">
                   <div
                     class="markdown-body"
                     style={{ backgroundColor: "#181818" }}
