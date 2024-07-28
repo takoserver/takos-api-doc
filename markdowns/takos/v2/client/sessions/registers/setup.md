@@ -1,18 +1,19 @@
 ### Endpoint
 
 ```
-POST /takos/v2/client/sessions/registers/auth
+POST /takos/v2/client/sessions/registers/setup
 ```
 
 ### Parameters
 
-| name         | type   | description       | required |
-| ------------ | ------ | ----------------- | -------- |
-| code         | string | 認証コード        | true     |
-| email        | string | email             | true     |
-| recaptcha    | string | reCAPCHA token    | true     |
-| recapchakind | string | v2 or v3          | true     |
-| sessionid    | string | 登録用のsessionid | true     |
+※FormDataに格納
+
+| name      | type   | description    | required |
+| --------- | ------ | -------------- | -------- |
+| nickName  | string | ニックネーム   |          |
+| recaptcha | string | reCAPCHA token | true     |
+| age       | string | 年齢           | true     |
+| csrftoken | string | csrfトークン   | true     |
 
 ### Response
 
@@ -24,4 +25,4 @@ body: {
 
 ## descripton
 
-メールアドレスを認証します
+初期設定を完了
