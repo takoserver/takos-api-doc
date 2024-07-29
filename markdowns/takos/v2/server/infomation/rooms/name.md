@@ -1,7 +1,7 @@
 ### Endpoint
 
 ```
-POST /takos/v2/server/infomation/users/nicName
+POST /takos/v2/server/infomation/room/name
 ```
 
 ### Parameters
@@ -9,12 +9,12 @@ POST /takos/v2/server/infomation/users/nicName
 {
     body: JSON.stringify({
         host: string,
-        userid: string,
+        roomid: string,
         requester: string
     }),
     signature: takos.signData(JSON.stringify({
         host:string,
-        userid: string,
+        roomid: string,
         requester: string
     }))
 
@@ -26,16 +26,15 @@ POST /takos/v2/server/infomation/users/nicName
 {
     body: JSON.stringify({
         host: string,
-        nickName: string,
-
+        roomName: string,
     })
     signature: takos.signData(JSON.stringify({
         host: string,
-        nickName: string
+        roomName: string
     }))
 }
 ```
 
 ## descripton
 
-リモートサーバーの友達のuserNameを取得するapi
+リモートサーバーのroomの名前を設定

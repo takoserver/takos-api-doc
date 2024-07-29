@@ -1,7 +1,7 @@
 ### Endpoint
 
 ```
-POST /takos/v2/server/infomation/users/nicName
+POST /takos/v2/server/infomation/users/icon
 ```
 
 ### Parameters
@@ -16,6 +16,7 @@ POST /takos/v2/server/infomation/users/nicName
         host:string,
         userid: string,
         requester: string
+        onluid: string //required false
     }))
 
 }
@@ -24,18 +25,10 @@ POST /takos/v2/server/infomation/users/nicName
 
 ```
 {
-    body: JSON.stringify({
-        host: string,
-        nickName: string,
-
-    })
-    signature: takos.signData(JSON.stringify({
-        host: string,
-        nickName: string
-    }))
+    image/jpeg
 }
 ```
 
 ## descripton
 
-リモートサーバーの友達のuserNameを取得するapi
+リモートサーバーの友達のアイコンの画像を取得するapi
