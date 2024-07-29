@@ -195,7 +195,7 @@ export default function Home(
                 <div class="w-2/3 lg:w-1/2 mx-auto overflow-y-auto hidden-scrollbar">
                   <div
                     class="markdown-body"
-                    style={{ backgroundColor: "#181818" }}
+                    style={{ backgroundColor: "#181818", color: "white" }}
                   >
                     <Page doc={data.markdown} />
                   </div>
