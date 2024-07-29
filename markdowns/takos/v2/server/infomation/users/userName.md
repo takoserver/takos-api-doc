@@ -1,11 +1,11 @@
 ### Endpoint
 
 ```
-POST /takos/v2/server/infomation/user/userrName
+POST /takos/v2/server/infomation/users/userrName
 ```
 
 ### Parameters
-
+````
 {
     body: JSON.stringify({
         host: string,
@@ -19,7 +19,7 @@ POST /takos/v2/server/infomation/user/userrName
     }))
 
 }
-
+````
 ### Response
 
 ```
