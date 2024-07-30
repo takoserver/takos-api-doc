@@ -1,4 +1,71 @@
+// deno-lint-ignore-file
+import { useSignal } from "@preact/signals";
+import { FreshContext } from "$fresh/server.ts";
+import FileTree from "../islands/FileTree.tsx";
+import Markdown from "preact-markdown";
+import { Page } from "../islands/Page.tsx";
+import { Partial } from "$fresh/runtime.ts";
+import Hanger from "../islands/Button.tsx";
+import HangerContent from "../islands/HangerContent.tsx";
+import SideMenu from "../islands/SideMenu.tsx";
+let routes: FileStructure | undefined;
+export const handler = {
+  async GET(_req: Request, ctx: FreshContext) {
+    const url = ctx.params.path;
+    if (!routes) {
+      routes = await getDirectoryStructure("./markdowns");
+    }
+    const urlArray = url.split("/").filter((part) => part); // 空の要素を取り除く
 
+    if (urlArray.length === 0) {
+      return ctx.render({ url, markdown: null });
+    }
+
+    let current = routes;
+    let exists = true;
+    let isDir = false;
+    //only file , not directory
+    for (const part of urlArray) {
+      if (typeof current !== "object" || !current) {
+        exists = false;
+        break;
+      }
+      if (current.files.includes(part)) {
+        exists = true;
+        break;
+      } else if (part in current) {
+        current = current[part] as FileStructure;
+        exists = false;
+        isDir = true;
+      } else {
+        exists = false;
+        break;
+      }
+    }
+    if (exists) {
+      const filePath = `./markdowns/${url}.md`;
+      const markdown = await Deno.readTextFile(filePath);
+      return ctx.render({ url, markdown });
+    } else {
+      if (isDir) {
+        return ctx.render({ url, markdown: null });
+      }
+      console.log("not found");
+      return ctx.renderNotFound();
+    }
+  },
+};
+type FileStructure = {
+  files: string[];
+  [directory: string]: FileStructure | string[];
+};
+
+// function to get directory structure
+async function getDirectoryStructure(path: string): Promise<FileStructure> {
+  const structure: FileStructure = { files: [] };
+
+  for await (const entry of Deno.readDir(path)) {
+    if (entry.isFile) {
       structure.files.push(entry.name.split(".").slice(0, -1).join("."));
     } else if (entry.isDirectory) {
       structure[entry.name] = await getDirectoryStructure(
@@ -64,18 +131,7 @@ export default function Home(
   const isShow = useSignal(false);
   return (
     <>
-<<<<<<< HEAD
-      <div class="bg-[#181818] text-black hidden-scrollbar">
-=======
-      <head>
-        <script src="/a.js"></script>
-        <link
-          rel="stylesheet"
-          href="https://sindresorhus.com/github-markdown-css/github-markdown.css"
-        />
-      </head>
       <div class="bg-[#181818] hidden-scrollbar text-white">
->>>>>>> 45818fb24fc10b0b472e121b3cec8b350078b053
         <header class="h-[56px] fixed w-full bg-[#1f1f1f] flex">
           <div class="w-1/3 h-full block">
             <Hanger isShow={isShow}></Hanger>
@@ -158,71 +214,3 @@ const MarkdownRenderer = ({ content }: { content: string }) => {
 
   return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 };
-// deno-lint-ignore-file
-import { useSignal } from "@preact/signals";
-import { FreshContext } from "$fresh/server.ts";
-import FileTree from "../islands/FileTree.tsx";
-import Markdown from "preact-markdown";
-import { Page } from "../islands/Page.tsx";
-import { Partial } from "$fresh/runtime.ts";
-import Hanger from "../islands/Button.tsx";
-import HangerContent from "../islands/HangerContent.tsx";
-import SideMenu from "../islands/SideMenu.tsx";
-let routes: FileStructure | undefined;
-export const handler = {
-  async GET(_req: Request, ctx: FreshContext) {
-    const url = ctx.params.path;
-    if (!routes) {
-      routes = await getDirectoryStructure("./markdowns");
-    }
-    const urlArray = url.split("/").filter((part) => part); // 空の要素を取り除く
-
-    if (urlArray.length === 0) {
-      return ctx.render({ url, markdown: null });
-    }
-
-    let current = routes;
-    let exists = true;
-    let isDir = false;
-    //only file , not directory
-    for (const part of urlArray) {
-      if (typeof current !== "object" || !current) {
-        exists = false;
-        break;
-      }
-      if (current.files.includes(part)) {
-        exists = true;
-        break;
-      } else if (part in current) {
-        current = current[part] as FileStructure;
-        exists = false;
-        isDir = true;
-      } else {
-        exists = false;
-        break;
-      }
-    }
-    if (exists) {
-      const filePath = `./markdowns/${url}.md`;
-      const markdown = await Deno.readTextFile(filePath);
-      return ctx.render({ url, markdown });
-    } else {
-      if (isDir) {
-        return ctx.render({ url, markdown: null });
-      }
-      console.log("not found");
-      return ctx.renderNotFound();
-    }
-  },
-};
-type FileStructure = {
-  files: string[];
-  [directory: string]: FileStructure | string[];
-};
-
-// function to get directory structure
-async function getDirectoryStructure(path: string): Promise<FileStructure> {
-  const structure: FileStructure = { files: [] };
-
-  for await (const entry of Deno.readDir(path)) {
-    if (entry.isFile) {

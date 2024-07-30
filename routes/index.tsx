@@ -92,18 +92,8 @@ export default function Home(
   const isShow = useSignal(false);
   return (
     <>
-<<<<<<< HEAD
+
       <div class="bg-[#181818] text-black hidden-scrollbar">
-=======
-      <head>
-        <script src="/a.js"></script>
-        <link
-          rel="stylesheet"
-          href="https://sindresorhus.com/github-markdown-css/github-markdown.css"
-        />
-      </head>
-      <div class="bg-[#181818] hidden-scrollbar text-white">
->>>>>>> 45818fb24fc10b0b472e121b3cec8b350078b053
         <header class="h-[56px] fixed w-full bg-[#1f1f1f] flex">
           <div class="w-1/3 h-full block">
             <Hanger isShow={isShow}></Hanger>
