@@ -13,7 +13,7 @@ export default function App({ Component }: PageProps) {
           href="/github-markdown.css"
         />
       </head>
-      <body class="bg-[#181818]" f-client-nav>
+      <body class="bg-[#181818] min-h-[100vh]" f-client-nav>
         <Component />
       </body>
     </html>

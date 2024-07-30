@@ -5,7 +5,8 @@ POST /takos/v2/server/infomation/users/icon
 ```
 
 ### Parameters
-````
+
+```
 {
     body: JSON.stringify({
         host: string,
@@ -20,7 +21,8 @@ POST /takos/v2/server/infomation/users/icon
     }))
 
 }
-````
+```
+
 ### Response
 
 ```

@@ -1,6 +1,4 @@
-分かりやすくまとめました。
-
-### Endpoint: `POST /takos/v2/client/settings/icon`
+### Endpoint: `POST /takos/v2/client/profile/icon`
 
 #### Parameters (formData)
 

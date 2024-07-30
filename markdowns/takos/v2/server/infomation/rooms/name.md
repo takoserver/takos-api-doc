@@ -5,7 +5,8 @@ POST /takos/v2/server/infomation/room/name
 ```
 
 ### Parameters
-````
+
+```
 {
     body: JSON.stringify({
         host: string,
@@ -19,7 +20,8 @@ POST /takos/v2/server/infomation/room/name
     }))
 
 }
-````
+```
+
 ### Response
 
 ```
