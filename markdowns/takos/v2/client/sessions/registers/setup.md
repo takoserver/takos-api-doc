@@ -10,7 +10,8 @@ POST /takos/v2/client/sessions/registers/setup
 
 | name      | type   | description    | required |
 | --------- | ------ | -------------- | -------- |
-| nickName  | string | ニックネーム   |          |
+| nickName  | string | ニックネーム   | true     |
+| icon      | string | icon           | true     |
 | recaptcha | string | reCAPCHA token | true     |
 | age       | string | 年齢           | true     |
 | csrftoken | string | csrfトークン   | true     |
