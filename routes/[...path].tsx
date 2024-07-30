@@ -170,9 +170,9 @@ export default function Home(
         <div class="pt-[56px] flex">
           {/*side bar */}
           <div class="flex-shrink-0 hidden lg:block lg:px-4">
-            <div class="fixed top-24 bottom-24 w-[17rem] flex overflow-hidden bg-[#242424] rounded-xl">
-              <div class="flex-1 h-[calc(100vh_-_6rem)] overflow-y-auto pb-8 p-2">
-                <ul class="list-inside  nested ml-2.5 file-tree text-lg">
+            <div class="fixed top-24 bottom-24 w-[17rem] flex overflow-hidden bg-[#242424] rounded-xl overflow-y-auto p-2 hidden-scrollbar">
+              <div class="flex-1 h-[calc(100vh_-_6rem)]  pb-8 overflow-hidden">
+                <ul class="list-inside  nested ml-2.5 file-tree text-lg overflow-y-auto hidden-scrollbar">
                   {renderSidebar(routes, "/")}
                 </ul>
               </div>
@@ -184,10 +184,10 @@ export default function Home(
               class="w-full min-w-0 text-white overflow-y-hidden flex"
               id="md"
             >
-              <div class="lg:ml-[18rem] mt-4 min-w-0 flex w-full">
+              <div class="lg:ml-[18rem] mt-4 min-w-0 flex w-full hidden-scrollbar">
                 <div class="w-2/3 lg:w-1/2 mx-auto overflow-y-auto hidden-scrollbar">
                   <div
-                    class="markdown-body"
+                    class="markdown-body hidden-scrollbar"
                     style={{ backgroundColor: "#181818", color: "white" }}
                   >
                     <Page doc={data.markdown} />
