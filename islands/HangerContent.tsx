@@ -1,8 +1,9 @@
+import { useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 
-function HangerContent({ isShow }: { isShow: boolean }, routes: any) {
+function HangerContent({ isShow, routes }) {
   useEffect(() => {
-    const handleFolderClick = (event: { target: any }) => {
+    const handleFolderClick = (event) => {
       const target = event.target;
       if (target.classList.contains("folder")) {
         target.classList.toggle("open");
@@ -15,7 +16,7 @@ function HangerContent({ isShow }: { isShow: boolean }, routes: any) {
 
     const folders = document.querySelectorAll(".folder");
     folders.forEach((folder) => {
-      const ul: HTMLElement = folder.nextElementSibling as HTMLElement;
+      const ul = folder.nextElementSibling;
       if (ul) {
         ul.style.display = "block"; // 初期状態で表示
       }
